@@ -1,0 +1,25 @@
+.footer{
+  background-color: var(--light-gray);
+  color: var(--gray);
+  font-size: 18px;
+}
+
+
+.footer__about-text {
+  text-align: justify;
+}
+
+.footer li {
+  margin: 10px 0;
+}
+
+ion-icon{
+  color: var(--orange);
+}
+
+.footer__copyright {
+  margin-top: 20px;
+  background-color: var(--light-gray-2);
+  font-weight: bold;
+  color: var(--gray);
+}

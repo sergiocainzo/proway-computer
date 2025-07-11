@@ -1,0 +1,83 @@
+.main-header {
+  padding: 10px 0px;
+}
+
+.header-title {
+  letter-spacing: -1.5px;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+.title-blue {
+  color: var(--blue);
+  font-size: 40px;
+}
+
+.title-orange {
+  color: var(--orange);
+  font-size: 40px;
+}
+
+.main-header__menu ul {
+  column-gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.main-header__menu ul li{
+  display: flex;
+  align-items: center;
+}
+
+.main-header__menu a {
+  padding: 10px 10px;
+  color: var(--gray);
+  font-weight: 400;
+  font-size: 22px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.main-header__menu a:hover {
+  background-color: var(--blue);
+  color: #fff;
+}
+
+ion-icon {
+  font-size: 22px;
+  vertical-align: middle;
+}
+
+.badge-carrinho {
+  background-color: var(--dark-blue);
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: white;
+  display: inline-block;
+  min-width: 10px;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+
+.search-form input {
+  height: 45px;
+  padding: 0 1rem;
+  flex: 1;
+  background-color: var(--light-gray);
+  color: var(--gray);
+  border: none;
+  transition: all .3s ease-in-out;
+  font-size: 22px;
+}
+
+.search-form button {
+  width: 56px;
+  height: 45px;
+  background-color: var(--blue);
+  border: none;
+  color: #fff;
+  font-size: 22px;
+}
