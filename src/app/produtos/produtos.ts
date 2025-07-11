@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProduto, produtos } from '../produtos';
 
 @Component({
   selector: 'app-produtos',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './produtos.scss'
 })
 export class Produtos {
-
+  produtos: IProduto[] = produtos;
 }
