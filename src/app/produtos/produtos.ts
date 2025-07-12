@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProduto, produtos } from '../produtos';
+import { ProdutosService } from '../produtos-service';
 
 @Component({
   selector: 'app-produtos',
@@ -7,6 +8,17 @@ import { IProduto, produtos } from '../produtos';
   templateUrl: './produtos.html',
   styleUrl: './produtos.scss'
 })
-export class Produtos {
-  produtos: IProduto[] = produtos;
+export class Produtos implements OnInit{
+  produtos: IProduto[] | undefined;
+
+  constructor(private service:ProdutosService){}
+
+
+  ngOnInit(): void {
+    this.produtos = this.service.getAll();
+  }
+
+
+
+
 }
