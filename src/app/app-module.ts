@@ -11,9 +11,10 @@ import { Header } from './layout/header/header';
 import { Footer } from './layout/footer/footer';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PaginaNaoEncontrada } from './pagina-nao-encontrada/pagina-nao-encontrada';
 
 @NgModule({
-  declarations: [App, Header, Footer],
+  declarations: [App, Header, Footer, PaginaNaoEncontrada],
   imports: [BrowserModule, AppRoutingModule, CommonModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
