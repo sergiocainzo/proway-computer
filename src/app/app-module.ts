@@ -12,10 +12,19 @@ import { Footer } from './layout/footer/footer';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PaginaNaoEncontrada } from './pagina-nao-encontrada/pagina-nao-encontrada';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [App, Header, Footer, PaginaNaoEncontrada],
-  imports: [BrowserModule, AppRoutingModule, CommonModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+  ],
   providers: [provideBrowserGlobalErrorListeners()],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [App],

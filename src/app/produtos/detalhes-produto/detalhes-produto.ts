@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProdutosService } from '../../produtos-service';
 import { IProduto } from '../../produtos';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-detalhes-produto',
@@ -10,12 +11,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './detalhes-produto.scss',
 })
 export class DetalhesProduto implements OnInit {
-  produto: IProduto | undefined;
+  produtos: IProduto | undefined;
   quantidade = 1;
 
   constructor(
     private service: ProdutosService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr:ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +28,11 @@ export class DetalhesProduto implements OnInit {
     const produtoId = Number(routeParams.get("id"));
 
     // Passa o ID do produto coletado para o metodo personalizado do Service para realizar a coleta do produto
-    this.produto = this.service.getOne(produtoId);
+    this.produtos = this.service.getOne(produtoId);
+  }
+
+  teste(){
+    this.toastr.success("Teste do Toastr!!")
   }
 
 }
