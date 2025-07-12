@@ -22,7 +22,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      preventDuplicates: true,
+      enableHtml: true,
+    }),
     BrowserAnimationsModule,
   ],
   providers: [provideBrowserGlobalErrorListeners()],

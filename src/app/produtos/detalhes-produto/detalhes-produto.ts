@@ -31,8 +31,8 @@ export class DetalhesProduto implements OnInit {
     this.produtos = this.service.getOne(produtoId);
   }
 
-  teste(){
-    this.toastr.success("Teste do Toastr!!")
+  adicionarCarrinho(){
+    this.toastr.success(`<br>Produto <strong>"${this.produtos?.descricao}"</strong>, adicionado ao carrinho`,"Carrinho de Compras!");
   }
 
 }
