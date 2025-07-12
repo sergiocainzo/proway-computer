@@ -17,7 +17,7 @@ export class DetalhesProduto implements OnInit {
   constructor(
     private service: ProdutosService,
     private route: ActivatedRoute,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -25,14 +25,23 @@ export class DetalhesProduto implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
 
     // Pega o valor do ID do produto e converte para numero
-    const produtoId = Number(routeParams.get("id"));
+    const produtoId = Number(routeParams.get('id'));
 
     // Passa o ID do produto coletado para o metodo personalizado do Service para realizar a coleta do produto
     this.produtos = this.service.getOne(produtoId);
   }
 
-  adicionarCarrinho(){
-    this.toastr.success(`<br>Produto <strong>"${this.produtos?.descricao}"</strong>, adicionado ao carrinho`,"Carrinho de Compras!");
+  adicionarCarrinho() {
+    if (this.quantidade > 1) {
+      this.toastr.success(
+        `<br><strong>Produto:</strong> ${this.produtos?.descricao}<br><strong>Quantidade:</strong> ${this.quantidade}<br>Adicionados com sucesso!`,
+        'Adicionado ao Carrinho'
+      );
+    } else {
+      this.toastr.success(
+        `<br><strong>Produto:</strong> ${this.produtos?.descricao}<br><strong>Quantidade:</strong> ${this.quantidade}<br>Adicionado com sucesso!`,
+        'Adicionado ao Carrinho'
+      );
+    }
   }
-
 }

@@ -23,9 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     FormsModule,
     ToastrModule.forRoot({
-      timeOut: 3000,
-      preventDuplicates: true,
-      enableHtml: true,
+      timeOut: 3000, // Tempo de exibição da mensagem.
+      preventDuplicates: true, // Evita a duplicidade de mensagens na tela
+      enableHtml: true, // Habilita as tags HTML dentro do toastr
     }),
     BrowserAnimationsModule,
   ],
