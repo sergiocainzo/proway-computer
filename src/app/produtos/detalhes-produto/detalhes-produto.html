@@ -1,9 +1,9 @@
 <section class="container-fluid">
-  <div class="d-flex">
+  <div class="d-md-inline-flex">
     <div class="">
-      <img [src]="produtos?.imagem" />
+      <img [src]="produtos?.imagem" class="img-fluid" />
     </div>
-    <div class="description-container mx-4">
+    <div class="description-container mx-1">
       <h2 class="nome-produto">{{ produtos?.descricao }}</h2>
       <h3 class="preco-monitor">{{ produtos?.preco | currency : "BRL" }}</h3>
       <p>Estoque disponível:</p>
@@ -11,7 +11,7 @@
         <label for="quantidade"> Quantidade:</label>
         <input
           type="number"
-          class="text-center form-control form-control-sm mx-2"
+          class="text-center form-control form-control-sm mx-1"
           id="quantidade"
           [(ngModel)]="quantidade"
           min="1"
@@ -21,7 +21,7 @@
       <p class="viabilidade-produto mt-3">
         {{ produtos?.quantidadeEstoque }} unidade(s) em estoque
       </p>
-      <button type="button" class="btn btn-primary" (click)="adicionarCarrinho()">
+      <button type="button" class="btn btn-primary mt-5" (click)="adicionarCarrinho()">
         Adicionar ao carrinho
       </button>
     </div>

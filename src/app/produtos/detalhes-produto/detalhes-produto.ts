@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutosService } from '../../produtos-service';
-import { IProduto } from '../../produtos';
+import { IProduto, IProdutoCarrinho } from '../../produtos';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CarrinhoService } from '../../carrinho-service';
 
 @Component({
   selector: 'app-detalhes-produto',
@@ -17,7 +18,8 @@ export class DetalhesProduto implements OnInit {
   constructor(
     private service: ProdutosService,
     private route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private carrinho: CarrinhoService
   ) {}
 
   ngOnInit(): void {
@@ -32,16 +34,19 @@ export class DetalhesProduto implements OnInit {
   }
 
   adicionarCarrinho() {
+    const produto: IProdutoCarrinho = {
+      ...this.produtos!,
+      quantidade: this.quantidade,
+    };
     if (this.quantidade > 1) {
       this.toastr.success(
-        `<br><strong>Produto:</strong> ${this.produtos?.descricao}<br><strong>Quantidade:</strong> ${this.quantidade}<br>Adicionados com sucesso!`,
-        'Adicionado ao Carrinho'
+        `${this.produtos?.descricao},adicionados com sucesso!`
       );
     } else {
       this.toastr.success(
-        `<br><strong>Produto:</strong> ${this.produtos?.descricao}<br><strong>Quantidade:</strong> ${this.quantidade}<br>Adicionado com sucesso!`,
-        'Adicionado ao Carrinho'
+        `${this.produtos?.descricao},adicionado com sucesso!`
       );
     }
+    this.carrinho.adicionarAoCarrinho(produto);
   }
 }

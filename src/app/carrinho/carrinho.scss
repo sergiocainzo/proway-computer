@@ -1,0 +1,30 @@
+img {
+  width: 150px;
+  height: 150px;
+}
+
+p,
+h2,
+label {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.total {
+  font-size: 18px;
+}
+
+input {
+  width: 45px;
+  box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.close-buttom {
+  height: 150px;
+}

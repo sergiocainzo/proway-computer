@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div>
+    <h2 class="fs-2">Carrinho</h2>
+  </div>
+  <div *ngIf="itensCarrinho.length > 0; else semProduto">
+    <ul class="list-unstyled">
+      <li
+        class="d-flex justify-content-between align-items-center my-3 shadow-lg"
+        *ngFor="let item of itensCarrinho"
+      >
+        <img [src]="item.imagem" class="rounded-start-3 img-fluid" />
+        <p class="">{{ item.descricao }}</p>
+        <p class="">Preço: {{ item.preco | currency : "BRL" }}</p>
+        <label for="quantidade" class="mb-3">Quantidade:</label>
+        <input
+          type="number"
+          id="quantidade"
+          class="form-control mb-3"
+          [(ngModel)]="item.quantidade"
+        />
+        <button
+          type="button"
+          class="btn btn-danger px-4 close-buttom"
+          (click)="removerProtudoCarrinho(item.id)"
+        >
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </li>
+    </ul>
+    <h2 class="my-3 total">Total: {{ totalCarrinho | currency : "BRL" }}</h2>
+    <button type="button" class="btn btn-primary" (click)="comprar()">Comprar</button>
+  </div>
+</div>
+
+<ng-template #semProduto>
+  Nenhum produto foi adicionado ao carrinho
+</ng-template>
