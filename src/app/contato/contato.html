@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row p-3">
+    <section class="col-12 col-lg-6">
+      <h2 class="titulo">Entre em contato</h2>
+      <form class="contact-form">
+        <!-- Nome -->
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nome"
+            id="floatingInput"
+          />
+          <label for="floatingInput">Nome</label>
+        </div>
+        <!-- Email -->
+        <div class="form-floating my-3">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            id="floatingInput"
+          />
+          <label for="floatingInput">Email</label>
+        </div>
+        <!-- Telefone -->
+        <div class="form-floating">
+          <input
+            type="tel"
+            class="form-control"
+            placeholder="Telefone (xx) xxxxx-xxxx"
+            id="floatingInput"
+          />
+          <label for="floatingInput">Telefone (xx) xxxxx-xxxx</label>
+        </div>
+        <!-- Assunto -->
+        <div class="form-floating my-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Assunto"
+            id="floatingInput"
+          />
+          <label for="floatingInput">Assunto</label>
+        </div>
+        <!-- Text Area-->
+        <div class="form-floating">
+          <textarea
+            name="areaInput"
+            class="form-control"
+            id="floatingArea"
+            placeholder="Informe a sua dúvida"
+            style="height: 150px"
+          ></textarea>
+          <label for="floatingArea">Informe a sua dúvida</label>
+        </div>
+        <!-- botão -->
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-primary mt-3" (click)="enviarFormulario()">Enviar</button>
+        </div>
+      </form>
+    </section>
+    <address class="col-12 col-lg-6 mt-5 mt-lg-0 text-center">
+      <div class="embed-responsive embed-responsive-16by9 ">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.575090994095!2d-49.07288232456033!3d-26.91697717664461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df18c3b4a71d65%3A0xa5ec9dd8406a6a7!2sProWay!5e0!3m2!1spt-BR!2sbr!4v1752408418914!5m2!1spt-BR!2sbr"
+          width="600"
+          height="450"
+          class="embed-responsive-item"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <p class="endereco py-3">
+        R. 7 de Setembro, 1600 - 14º andar - Centro, Blumenau - SC, 89010-204
+      </p>
+    </address>
+  </div>
+</div>
