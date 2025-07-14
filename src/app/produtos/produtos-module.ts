@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { ProdutosRoutingModule } from './produtos-routing-module';
 import { Produtos } from './produtos';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetalhesProduto } from './detalhes-produto/detalhes-produto';
 
 @NgModule({
   declarations: [Produtos, DetalhesProduto],
-  imports: [CommonModule, ProdutosRoutingModule, FormsModule],
+  imports: [
+    CommonModule,
+    ProdutosRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class ProdutosModule {}

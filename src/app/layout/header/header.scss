@@ -60,23 +60,3 @@ ion-icon {
   font-size: 0.8em;
 }
 
-
-.search-form input {
-  height: 45px;
-  padding: 0 1rem;
-  flex: 1;
-  background-color: var(--light-gray);
-  color: var(--gray);
-  border: none;
-  transition: all .3s ease-in-out;
-  font-size: 22px;
-}
-
-.search-form button {
-  width: 56px;
-  height: 45px;
-  background-color: var(--blue);
-  border: none;
-  color: #fff;
-  font-size: 22px;
-}

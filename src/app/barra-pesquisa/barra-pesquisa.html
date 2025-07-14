@@ -1,0 +1,16 @@
+<form
+  #searchForm="ngForm"
+  (ngSubmit)="buscar()"
+  class="d-flex search-form"
+>
+  <input
+    type="text"
+    name="descricao"
+    [(ngModel)]="descricao"
+    class="form-control"
+    placeholder="Buscar produtos"
+  />
+  <button type="submit" class="btn btn-primary">
+    <ion-icon name="search-outline"></ion-icon>
+  </button>
+</form>

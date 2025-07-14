@@ -2,7 +2,11 @@
   <div class="row p-3">
     <section class="col-12 col-lg-6">
       <h2 class="titulo">Entre em contato</h2>
-      <form class="contact-form">
+      <form
+        class="contact-form"
+        [formGroup]="formContato"
+        (ngSubmit)="enviarFormulario()"
+      >
         <!-- Nome -->
         <div class="form-floating">
           <input
@@ -10,8 +14,34 @@
             class="form-control"
             placeholder="Nome"
             id="floatingInput"
+            formControlName="nome"
+            [class.valid]="formContato.controls['nome'].valid"
+            [class.invalid]="
+              formContato.controls['nome'].invalid &&
+              (formContato.controls['nome'].touched ||
+                formContato.controls['nome'].dirty)
+            "
           />
           <label for="floatingInput">Nome</label>
+          <div
+            *ngIf="
+              formContato.controls['nome'].invalid &&
+              (formContato.controls['nome'].touched ||
+                formContato.controls['nome'].dirty)
+            "
+          >
+            <small
+              class="alert-message"
+              *ngIf="formContato.controls['nome'].hasError('required')"
+            >
+              O nome é obrigatório!
+            </small>
+            <small
+              class="error-message"
+              *ngIf="formContato.controls['nome'].hasError('minlength')"
+              >Nome deve conter no mínimo 3 caracteres</small
+            >
+          </div>
         </div>
         <!-- Email -->
         <div class="form-floating my-3">
@@ -20,8 +50,28 @@
             class="form-control"
             placeholder="Email"
             id="floatingInput"
+            formControlName="email"
+            [class.valid]="formContato.controls['email'].valid"
+            [class.invalid]="
+              formContato.controls['email'].invalid &&
+              (formContato.controls['email'].touched ||
+                formContato.controls['email'].dirty)
+            "
           />
           <label for="floatingInput">Email</label>
+          <div
+            *ngIf="
+              formContato.controls['email'].invalid &&
+              (formContato.controls['email'].touched ||
+                formContato.controls['email'].dirty)
+            "
+          >
+            <small
+              class="alert-message"
+              *ngIf="formContato.controls['email'].hasError('required')"
+              >Informe um e-mail válido!</small
+            >
+          </div>
         </div>
         <!-- Telefone -->
         <div class="form-floating">
@@ -29,9 +79,30 @@
             type="tel"
             class="form-control"
             placeholder="Telefone (xx) xxxxx-xxxx"
+            mask="(00) 00000-0000"
             id="floatingInput"
+            formControlName="telefone"
+            [class.valid]="formContato.controls['telefone'].valid"
+            [class.invalid]="
+              formContato.controls['telefone'].invalid &&
+              (formContato.controls['telefone'].touched ||
+                formContato.controls['telefone'].dirty)
+            "
           />
           <label for="floatingInput">Telefone (xx) xxxxx-xxxx</label>
+          <div
+            *ngIf="
+              formContato.controls['telefone'].invalid &&
+              (formContato.controls['telefone'].touched ||
+                formContato.controls['telefone'].dirty)
+            "
+          >
+            <small
+              class="alert-message"
+              *ngIf="formContato.controls['telefone'].hasError('required')"
+              >Informe um telefone válido!</small
+            >
+          </div>
         </div>
         <!-- Assunto -->
         <div class="form-floating my-3">
@@ -40,8 +111,34 @@
             class="form-control"
             placeholder="Assunto"
             id="floatingInput"
+            formControlName="assunto"
+            [class.valid]="formContato.controls['assunto'].valid"
+            [class.invalid]="
+              formContato.controls['assunto'].invalid &&
+              (formContato.controls['assunto'].touched ||
+                formContato.controls['assunto'].dirty)
+            "
           />
           <label for="floatingInput">Assunto</label>
+          <div
+            *ngIf="
+              formContato.controls['assunto'].invalid &&
+              (formContato.controls['assunto'].touched ||
+                formContato.controls['assunto'].dirty)
+            "
+          >
+            <small
+              class="alert-message"
+              *ngIf="formContato.controls['assunto'].hasError('required')"
+            >
+              O assunto é obrigatório!
+            </small>
+            <small
+              class="error-message"
+              *ngIf="formContato.controls['assunto'].hasError('minlength')"
+              >Assunto deve ter no mínimo 5 caracteres</small
+            >
+          </div>
         </div>
         <!-- Text Area-->
         <div class="form-floating">
@@ -51,17 +148,48 @@
             id="floatingArea"
             placeholder="Informe a sua dúvida"
             style="height: 150px"
+            formControlName="mensagem"
+            [class.valid]="formContato.controls['mensagem'].valid"
+            [class.invalid]="
+              formContato.controls['mensagem'].invalid &&
+              (formContato.controls['mensagem'].touched ||
+                formContato.controls['mensagem'].dirty)
+            "
           ></textarea>
-          <label for="floatingArea">Informe a sua dúvida</label>
+          <label for="floatingArea">Digite o seu texto</label>
+          <div
+            *ngIf="
+              formContato.controls['mensagem'].invalid &&
+              (formContato.controls['mensagem'].touched ||
+                formContato.controls['mensagem'].dirty)
+            "
+          >
+            <small
+              class="alert-message"
+              *ngIf="formContato.controls['mensagem'].hasError('required')"
+              >O texto é obrigatório</small
+            >
+            <small
+              class="error-message"
+              *ngIf="formContato.controls['mensagem'].hasError('minlength')"
+              >Sua mensagem deve conter no mínimo 10 caracteres.</small
+            >
+          </div>
         </div>
         <!-- botão -->
         <div class="d-flex justify-content-end">
-          <button type="button" class="btn btn-primary mt-3" (click)="enviarFormulario()">Enviar</button>
+          <button
+            type="submit"
+            class="btn btn-primary mt-3"
+            [disabled]="formContato.invalid"
+          >
+            Enviar
+          </button>
         </div>
       </form>
     </section>
     <address class="col-12 col-lg-6 mt-5 mt-lg-0 text-center">
-      <div class="embed-responsive embed-responsive-16by9 ">
+      <div class="embed-responsive embed-responsive-16by9">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.575090994095!2d-49.07288232456033!3d-26.91697717664461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df18c3b4a71d65%3A0xa5ec9dd8406a6a7!2sProWay!5e0!3m2!1spt-BR!2sbr!4v1752408418914!5m2!1spt-BR!2sbr"
           width="600"
